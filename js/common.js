@@ -5,17 +5,20 @@ function startLogo() {
     logo.style.opacity = 1;
     logo.style.transitionDuration = "3s";
 }
-window.onload = startLogo;
+document.addEventListener("DOMContentLoaded", startLogo)
+// window.addEventListener("onload", startLogo) // 안된다.
 // 메뉴
 // 토글 버튼 / 메인 메뉴
 const tglBtn = $("#gnbWrap button")
-let menuState = 0;
+let menuState = 0; // 메뉴 상태 표시 0=미표시 / 1=표시
+// 토글 버튼 모양
 tglBtn.on("mouseover", function() {
     $(this).addClass("on")
 })
 tglBtn.on("mouseout", function() {
     if (menuState != 1) $(this).removeClass("on")
 })
+// 메인 메뉴
 tglBtn.on("click", function() {
     if (menuState == 0) {
         $("#gnbWrap").addClass("on")
@@ -61,6 +64,7 @@ let num = 0;
 // 기본 구조 1 2 3 -------------------------------------------------
 sliderList.style.marginLeft = "0px"
 
+console.log($("#sliderList").first().index())
 // 특정 시간마다 이동
 timer = setInterval(function() {
     moveLeft(1)
@@ -71,7 +75,6 @@ function moveLeft(n) {
     moveState = 1;
     if (num == 2) num = -1;
     num += n;
-    // let moveWidth = document.documentElement.clientWidth;
     sliderList.style.marginLeft = -moveWidth * n + "px";
     sliderList.style.transitionDuration = "0.5s";
     setTimeout(function() {
@@ -107,7 +110,6 @@ function slideRight(m) {
         sliderList.removeChild(lastChild)
         sliderList.prepend(lastChild)
     }
-    // let moveWidth = document.documentElement.clientWidth;
     sliderList.style.marginLeft = -moveWidth * m + "px";
     sliderList.style.transitionDuration = "0s";
     moveState = 0;
@@ -116,8 +118,8 @@ function slideRight(m) {
 btnColor()
 function btnColor() {
     for (let i=0; i<sliderBtn.length; i++) {
-        if (num == i) sliderBtn[i].style.backgroundColor = "orangered"
-        else sliderBtn[i].style.backgroundColor = "#ccc"
+        if (num == i) sliderBtn[i].className = "on"
+        else sliderBtn[i].className = ""
     }
 }
 // 버튼 클릭 시 해당 슬라이드화면으로 이동
@@ -139,21 +141,47 @@ $(document).on("scroll", function() {
     else $("#quoteWrap").css("opacity", "0")
 })
 // 교육 프로그램
+// a 태그에 걸려있는 기본값은 혹시 모르니 취소시켜준다.
 $("#articleWrap a").on("click",function(e) {
     e.preventDefault();
 })
-$("#articleWrap article span").eq(0).text("-")
-$("#articleWrap article").eq(0).addClass("on")
-$("#articleWrap article span").on("click", function() {
-    if ($(this).text() == "+") {
-        $(this).parents("#articleWrap").children().removeClass()
-        $(this).parent().addClass("on")
-        $(this).parents("#articleWrap").find("span").text("+")
-        $(this).text("-")
+// 첫 번째 article 은 열어둔다.
+window.onload = function() {
+    $("#articleWrap article span").eq(0).text("-")
+    $("#articleWrap article").eq(0).addClass("on")
+}
+// $("#articleWrap article span").on("click", articleOpen)
+const articleWrap = document.querySelector("#articleWrap")
+const articles = articleWrap.querySelectorAll("article")
+const articleSpan = articleWrap.querySelectorAll("article span")
+// const articleWrap = $("#articleWrap")
+// const articles = $("#articleWrap article")
+// const articleSpan = $("#articleWrap article span")
+let iNum;
+// span 클릭 시 해당 article 열림 / 다른 article들은 닫음
+for (let i=0; i<articleSpan.length; i++) {
+    articleSpan[i].addEventListener("click", function() {
+        articleOpen(i)
+    })
+}
+// article 열림
+function articleOpen(iNum) {
+    if (articleSpan[iNum].innerText == "+") { // 해당 article은 열어준다.
+        articles[iNum].className = "on"
+        articleSpan[iNum].innerText = "-"
     }
-    else {
-        $(this).parent().removeClass()
-        $(this).text("+")
+    else { // 만약 이미 열려있는 것을 클릭한다면 닫는다.
+        articles[iNum].className = ""
+        articleSpan[iNum].innerText = "+"
     }
-})
-
+    articleClose(iNum); // 마지막에 해당 index 번호를 제외한 모든 article은 닫아 준다
+}
+// article 닫힘
+function articleClose(iNum) {
+    for (let i=0; i<articles.length; i++) {
+        if (iNum != i) {
+            articles[i].className = ""
+            articleSpan[i].innerText = "+"
+        }
+    }
+}
