@@ -31,7 +31,7 @@ body {min-width: 1280px;} /* 최소 크기 */
     width: 100%; transition-duration: 0.3s;
     min-width: 1280px;
 }
-#gnbWrap.on {background-color: rgba(0, 0, 0, 0.5);}
+#gnbWrap.on {background-color: rgba(0, 0, 0, 0.8);}
 /* #gnbWrap::after {content: ""; display: block; clear: both;} */
 /* 토글 메뉴 */
 #gnbWrap button {
