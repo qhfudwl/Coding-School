@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Coding School</title>
+        <link rel="stylesheet" href="css/common.css">
+        <script src="jquery-3.6.0.min.js"></script>
+        <script src="js/common.js" defer></script>
+    </head>
+    <body>
+        <header id="header">
+            <h1><a href="index.html">Coding School</a></h1>
+        </header>
+        <nav id="gnbWrap">
+            <h2 class="hidden">코딩스쿨 이용메뉴</h2>
+            <button>메인 메뉴 토글 버튼</button>
+            <ul id="gnb">
+                <li><a href="#">처음으로</a></li>
+                <li><a href="#sliderSection">코딩이란</a></li>
+                <li><a href="#whyWrap">코딩교육</a>
+                    <ul class="snb">
+                        <li><a href="#whyWrap">왜 코딩 교육인가</a></li>
+                        <li><a href="#thinkWrap">더 나아가기</a></li>
+                    </ul>
+                </li>
+                <li><a href="#programs">교육프로그램</a>
+                    <ul class="snb">
+                        <li><a href="#">언플러그드 활동</a></li>
+                        <li><a href="#">스크래치</a></li>
+                        <li><a href="#">엔트리</a></li>
+                        <li><a href="#">피지컬 컴퓨팅</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <section id="sliderSection">
+            <h2>코딩이란</h2>
+            <div id="sliderWrap">
+                <ul id="sliderList">
+                    <li class="slider slider1">
+                        <p>첫번째 이벤트 내용입니다.</p>
+                        <a href="#">이벤트 바로가기</a>
+                    </li>
+                    <li class="slider slider2">
+                        <!-- 여기서 밑에 p 태그로 묶은 것은 의미가 있는 것이기 때문에 span 으로 묶으면 안된다. -->
+                        <p>두번째 이벤트 내용입니다.</p>
+                        <a href="#">이벤트 바로가기</a>
+                    </li>
+                    <li class="slider slider3">
+                        <p>세번째 이벤트 내용입니다.</p>
+                        <a href="#">이벤트 바로가기</a>
+                    </li>
+                </ul>
+                <div id="sliderMove"> <!-- 텍스트를 넣었어야한다. -->
+                    <a href="#">첫번째</a>
+                    <a href="#">두번째</a>
+                    <a href="#">세번째</a>
+                </div>
+            </div>
+        </section>
+        <main>
+            <section id="whyWrap">
+                <div id="whyWidth">
+                    <div id="why">
+                        <h2>왜 코딩 교육인가</h2>
+                        <p>코딩교육은 앞으로 미래 사회를 살아가는데 있어서 IT 분야에서 일하는 사람들 뿐만 아니라 일반인에게도 꼭 필요한 공부입니다. 프로그램을 다룰 수 있는 코딩 언어를 알고 있다면 평소 자신이 생각했던 프로그램을 스스로 개발해서 실생활에 활용할 수 있습니다.</p>
+                    </div>
+                    <div id="quoteWrap">
+                        <p>
+                            <q cite="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EB%B9%8C%EA%B2%8C%EC%9D%B4%EC%B8%A0+%EB%AA%85%EC%96%B8&oquery=%EB%B9%8C%EA%B2%8C%EC%9D%B4%EC%B8%A0+%EC%BD%94%EB%94%A9%EC%9D%80+%EB%AA%85%EC%96%B8&tqi=hRavEsprvxssskvEs%2F4ssssssC4-115967">
+                                    사업에 쓰이는 그 어떤 기술에도 적용되는 첫번째 규칙은, 효율적인 작업을 위해 적용된 자동화방식이 효율화를 극대화시킬 것이라는 것이다.
+                                    두번째 규칙은, 비효율적인 작업을 위해 적용된 자동화방식은 비효율화를 극대화시킬 것이라는 것이다.
+                            </q><br>
+                            <span>- 빌 게이츠 -</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <div id="programWrap">
+                <section id="programs">
+                    <h2>교육 프로그램</h2>
+                    <div id="articleWrap">
+                        <article>
+                            <a href="#">
+                                <h3>언플러그드 활동</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            </a>
+                            <span>+</span>
+                        </article>
+                        <article>
+                            <a href="#">
+                                <h3>스크래치</h3>
+                                <p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            </a>
+                            <span>+</span>
+                        </article>
+                        <article>
+                            <a href="#">
+                                <h3>엔트리</h3>
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                            </a>
+                            <span>+</span>
+                        </article>
+                        <article>
+                            <a href="#">
+                                <h3>피지컬 컴퓨팅</h3>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                            </a>
+                            <span>+</span>
+                        </article>
+                    </div>
+                    <!-- <a href="#gnbWrap">top</a> -->
+                </section>
+            </div>
+        </main>
+        <div id="footerWrap">
+            <footer id="footer">
+                <div id="infoWrap">
+                    <p>대구광역시 XX구 XXX로 XX길 XXXXXXX / 대표 : OOO</p>
+                    <small>사업자등록번호 : □ □ □ - □ □ - □ □ □ □ □</small>
+                    <p>전화 : XXXX - XXXX / 팩스 : XX - XXXX - XXXX</p>
+                    <address>이메일 : aaa@aaa.aaa</address>
+                </div>
+                <ul id="linkWrap">
+                    <li><a href="https://www.facebook.com/" target="_blank">facebook 바로가기</a></li>
+                    <li><a href="https://twitter.com/" target="_blank">twitter 바로가기</a></li>
+                    <li><a href="https://www.youtube.com/" target="_blank">youtube 바로가기</a></li>
+                    <li><a href="https://www.google.com/" target="_blank">google+ 바로가기</a></li>
+                </ul>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,230 @@
+@charset "utf-8";
+/* 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+/* 초기화 */
+body, h1, h2, h3, h4, h5, h6, ul, p {margin: 0; padding: 0;}
+li {list-style: none;}
+a {text-decoration: none; color: black;}
+address, small {font-style: normal; font-size: 1em;}
+.hidden {position:absolute; left: -9999px;}
+/* html */
+html {scroll-behavior: smooth;}
+/* body */
+body {min-width: 1280px;} /* 최소 크기 */
+/* 헤더 */
+#header {background: url(../images/code.jpg) no-repeat center / cover;}
+#header h1 {
+    background-color: rgba(0, 0, 0, 0.5); width: 100vw; height: 100vh;
+    display: table-cell; vertical-align: middle;
+}
+#header h1 a { /* 로고 */
+    display: block; width: 220px; line-height: 220px;
+    background: url(../images/logo.png) no-repeat center;
+    margin: 0 auto;
+    opacity: 0;
+    text-indent: -9999px;
+}
+/* 네비게이션 */
+/* 메인 메뉴 */
+#gnbWrap {
+    position: fixed; top: 0; left: 0; z-index: 1000;
+    width: 100%; transition-duration: 0.3s;
+    min-width: 1280px;
+}
+#gnbWrap.on {background-color: rgba(0, 0, 0, 0.5);}
+/* #gnbWrap::after {content: ""; display: block; clear: both;} */
+/* 토글 메뉴 */
+#gnbWrap button {
+    outline: none; border: 0; background-color: #000; color: #fff;
+    text-indent: -9999px;
+    width: 50px; height: 50px; margin: 10px 0 10px 10px;
+    float: left;
+    position: relative;
+}
+#gnbWrap button::before {
+    content: ""; border: 3px solid #fff; border-right: 0; border-left: 0;
+    position: absolute; top: 10px; left: 10px; height: 30px; width: 30px; box-sizing: border-box;
+    transition-duration: 0.3s;
+}
+/* #gnbWrap button:hover::before {width: 20px;} */
+#gnbWrap button.on::before {width: 15px;}
+#gnbWrap button::after {
+    content: ""; border: 3px solid #fff; border-right: 0; border-left: 0;
+    position: absolute; top: 19px; left: 10px; height: 12px; width: 15px; box-sizing: border-box;
+    transition-duration: 0.3s;
+}
+/* #gnbWrap button:hover::after {width: 30px;} */
+#gnbWrap button.on::after {width: 30px;}
+/* 메인메뉴 */
+#gnb {
+    float: right;
+    opacity: 0; transition-duration: 0.3s;
+    /* background-color: wheat; */
+    width: 1150px; margin-right: 50px;
+    display: none; flex-flow: row nowrap; justify-content: space-between;
+    text-align: center;
+}
+#gnb > li {width: 23%; position: relative;}
+#gnb > li > a {
+    display: block; width: 100%; line-height: 70px;
+    font-weight: bold; font-size: 20px;
+    transition-duration: 0.3s;
+    color: #fff;
+}
+#gnb > li > a.on {font-size: 25px; color: orangered;}
+/* #gnb > li > a:hover + .snb {opacity: 1;} */
+/* 보조메뉴 */
+.snb {
+    background: orangered;
+    position: absolute; top: 65px; left: 0; z-index: 1000;
+    width: 100%;
+    border-radius: 20px; box-shadow: 0 0 5px #535353;
+    opacity: 0; transition-duration: 0.3s; display: none;
+}
+.snb li a {line-height: 50px; color: #fff;}
+/* 슬라이더 */
+#sliderSection {
+    overflow: hidden; height: 100vh;
+    text-align: center;
+}
+#sliderSection h2 {font-size: 50px; padding: 50px 0;}
+#sliderWrap {
+    width: 1000px; margin: 0 auto;
+    overflow: hidden; 
+    position: relative;
+}
+/* 슬라이더 리스트 */
+#sliderList {width: 3000px;}
+.slider {
+    background: no-repeat center / cover;
+    height: 600px; width: 33.3333%;
+    float: left;
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+.slider::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.slider1 {background-image: url(../images/slider1.jpg);}
+.slider2 {background-image: url(../images/slider2.jpg);}
+.slider3 {background-image: url(../images/slider3.jpg);}
+.slider p {
+    position: relative; top: 200px;
+    font-size: 60px;
+}
+.slider a {
+    position: relative; top: 250px;
+    font-size: 30px;
+    padding: 15px 60px;
+    color: #fff; background: orangered;
+    transition-duration: 0.3s;
+}
+.slider a:hover {background: springgreen;}
+/* 슬라이더 이동 버튼 */
+#sliderMove {
+    /* position: absolute; top: 680px; left: 0; */
+    padding-top: 50px;
+    width: 100%;
+    display: flex; flex-flow: row nowrap; justify-content: center;
+}
+#sliderMove a {
+    display: block; margin: 0 15px;
+    height: 20px; width: 100px;
+    text-indent: -9999px; border-radius: 5px;
+    background: #ccc; transition-duration: 0.3s;
+}
+/* 본문 */
+/* 왜 코딩 교육인가 */
+#whyWrap {
+    background: url(../images/Bill_Gates.jpg) no-repeat center / cover;
+    width: 100vw; height: 100vh;
+    display: table-cell; vertical-align: middle;
+    overflow: hidden;
+}
+#whyWidth {
+    color: #fff; height: 50%;
+    padding-left: 50%;
+}
+#why {
+    padding: 30px 30px 100px; width: 675px;
+}
+#why h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 60px;
+}
+#why p {
+}
+/* 빌 게이츠 인용문 */
+#quoteWrap {opacity: 0; transition-duration: 2s;}
+#quoteWrap > p {
+    width: 675px; background-color: darkolivegreen;
+    padding: 30px; text-align: center; line-height: 1.8em;
+    color: #000;
+}
+#quoteWrap span {font-weight: bold; line-height: 50px; font-size: 20px;}
+#quoteWrap > p q {color: #fff;}
+/* 교육 프로그램 */
+#programWrap {
+    background: #d8d8d8;
+    /* border: 1px solid red; */
+}
+#programs {
+    width: 1280px; margin: 0 auto; padding: 80px 0 55px;
+    overflow: hidden;
+}
+#programs h2 {
+    text-align: center; margin-bottom: 70px;
+    font-size: 30px;
+}
+/* 교육 프로그램 소본문들 */
+#articleWrap {
+    width: 1000px; margin: 0 auto;
+}
+#articleWrap article {
+    height: 70px; padding: 0 25px 25px; overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #ababab;
+    background: #fff;
+    transition-duration: 0.3s;
+    margin-bottom: 20px;
+    position: relative;
+}
+#articleWrap article.on {height: 200px;}
+#articleWrap article span {
+    position: absolute; top: 0; right: 25px;
+    font-size: 45px;
+    cursor: pointer;
+}
+#articleWrap article h3 {line-height: 70px;}
+/* 푸터 */
+#footerWrap {
+    background: #34495e; color: #fff;
+    padding: 90px 0 75px;
+}
+#footerWrap::after {content: ""; display: block; clear: both;}
+#footer {width: 920px; margin: 0 auto; padding: 0 180px;}
+#footer a {color: #fff;}
+/* 주소, 사업자등록번호, 번호, 메일 */
+#infoWrap {float: left;}
+/* 링크 */
+#linkWrap {float: right;}
+#linkWrap li {float: left;}
+#linkWrap li a {
+    display: block; width: 32px; height: 32px;
+    text-indent: -9999px;
+    margin: 0 20px;
+    transition-duration: 0.5s;
+    border-radius: 50%;
+}
+#linkWrap li:nth-child(1) a {background: url(../images/fb.png);}
+#linkWrap li:nth-child(2) a {background: url(../images/tw.png);}
+#linkWrap li:nth-child(3) a {background: url(../images/ytube.png);}
+#linkWrap li:nth-child(4) a {background: url(../images/gp.png);}
+#linkWrap li a:hover {
+    transform: scale(1.5) rotate(30deg);
+    box-shadow: 0 0 5px #ccc;
+}
