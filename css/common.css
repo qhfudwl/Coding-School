@@ -79,12 +79,19 @@ body {min-width: 1280px;} /* 최소 크기 */
     position: absolute; top: 65px; left: 0; z-index: 1000;
     width: 100%;
     border-radius: 20px; box-shadow: 0 0 5px #535353;
-    opacity: 0; transition-duration: 0.3s; display: none;
+    opacity: 0; transition-duration: 0.3s; 
+    display: none;
 }
-.snb li a {line-height: 50px; color: #fff;}
+.snb li a {line-height: 50px; color: #fff; position: relative;}
+.snb li a::before {
+    content: ""; position: absolute; top: 10px; left: calc(-10%);
+    height: 2px; width: 0; background-color: #fff;
+    transition-duration: 0.3s;
+}
+.snb li a:hover::before {width: 120%;}
 /* 슬라이더 */
 #sliderSection {
-    overflow: hidden; height: 100vh;
+    height: 100vh;
     text-align: center;
 }
 #sliderSection h2 {font-size: 50px; padding: 50px 0;}
@@ -136,6 +143,7 @@ body {min-width: 1280px;} /* 최소 크기 */
     text-indent: -9999px; border-radius: 5px;
     background: #ccc; transition-duration: 0.3s;
 }
+#sliderMove a.on {background: orangered;}
 /* 본문 */
 /* 왜 코딩 교육인가 */
 #whyWrap {
