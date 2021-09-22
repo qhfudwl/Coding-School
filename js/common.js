@@ -5,7 +5,7 @@ function startLogo() {
     logo.style.opacity = 1;
     logo.style.transitionDuration = "3s";
 }
-startLogo()
+window.onload = startLogo;
 // 메뉴
 // 토글 버튼 / 메인 메뉴
 const tglBtn = $("#gnbWrap button")
